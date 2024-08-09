@@ -11,8 +11,6 @@ on:
       - main # This will trigger the workflow on all pushes to the main branch
 
 jobs:
-
-
   linting: #This job performs linting operations on Node.js version 20.
     runs-on: ubuntu-latest
     strategy:
@@ -26,3 +24,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run lint
+      - run: npm run build #controlls build errors
