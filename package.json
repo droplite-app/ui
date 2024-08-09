@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
   },
   "dependencies": {
     "react": "^18.3.1",
