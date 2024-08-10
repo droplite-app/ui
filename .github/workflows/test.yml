@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+      #- run: chmod +x .husky/pre-commit # Husky için izinleri ayarla
+      #- run: npm install -g husky
+      #- run: HUSKY=0 npm install
       - run: npm run lint
 
   build: # This job builds the project with different Node.js versions.
