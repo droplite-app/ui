@@ -10,7 +10,7 @@ function App() {
         <p>This is the main content area.</p>
       </main>
     </div>
-  );
+  ); //test
 }
 
 export default App;
