@@ -3,14 +3,14 @@ import SideBar from "./components/SideBar";
 
 function App() {
   return (
-    <div className="container">
+    <div className="flex min-h-screen">
       <SideBar />
-      <main className="content">
-        <h1>Main Content</h1>
-        <p>This is the main content area.</p>
+      <main className="flex-1 p-5 bg-gray-100">
+        <h1 className="text-2xl font-bold">Main Content</h1>
+        <p className="mt-4">This is the main content area.</p>
       </main>
     </div>
-  ); //test
+  );
 }
 
 export default App;
