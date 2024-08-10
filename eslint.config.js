@@ -1,17 +1,38 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+import js from "@eslint/js";
+import { FlatCompat } from "@eslint/eslintrc";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// CommonJS değişkenlerini taklit etme
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// FlatCompat'i doğru bir şekilde yapılandırma
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended, // recommendedConfig'i ayarlama
+});
 
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  // js.configs.recommended'i doğrudan ekleme
+  js.configs.recommended,
+
+  // ESLintRC tarzı extends özelliğini taklit etme
+  ...compat.extends(
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+  ),
+
   {
+    // Özel kurallarınızı buraya ekleyin
     rules: {
-      "react/react-in-jsx-scope": "off", // Bu kuralı devre dışı bırakır
+      "react/react-in-jsx-scope": "off", // React 17 ve sonrası için JSX kapsamı kuralını kapatma
+    },
+    settings: {
+      react: {
+        version: "detect", // React versiyonunu otomatik olarak tespit eder
+      },
     },
   },
 ];
