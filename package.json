@@ -12,8 +12,7 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest --watch",
-    "prepare": "husky"
+    "test:watch": "vitest --watch"
   },
   "dependencies": {
     "react": "^18.3.1",
