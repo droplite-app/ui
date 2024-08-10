@@ -1,5 +1,5 @@
-import MobileMenu from './MobileMenu';
-import { FaUpload } from 'react-icons/fa'; // FaUpload ikonunu doğru şekilde import etme
+import MobileMenu from "./MobileMenu";
+import { FaUpload } from "react-icons/fa"; // FaUpload ikonunu doğru şekilde import etme
 
 const MobileMenuContainer = () => {
   return (

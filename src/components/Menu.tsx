@@ -1,6 +1,5 @@
-
-import MenuItem from './MenuItem';
-import { FaShoppingBag, FaUpload, FaStar } from 'react-icons/fa';
+import MenuItem from "./MenuItem";
+import { FaShoppingBag, FaUpload, FaStar } from "react-icons/fa";
 
 const Menu = () => {
   return (

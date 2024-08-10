@@ -1,5 +1,3 @@
-
-
 const Avatar = () => {
   return (
     <div className="sidebar-header">

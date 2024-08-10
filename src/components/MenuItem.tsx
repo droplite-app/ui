@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface MenuItemProps {
   icon: React.ReactNode;
@@ -6,9 +6,13 @@ interface MenuItemProps {
   isActive?: boolean;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ icon, text, isActive = false }) => {
+const MenuItem: React.FC<MenuItemProps> = ({
+  icon,
+  text,
+  isActive = false,
+}) => {
   return (
-    <li className={`menu-item ${isActive ? 'active' : ''}`}>
+    <li className={`menu-item ${isActive ? "active" : ""}`}>
       {icon}
       <span>{text}</span>
     </li>
