@@ -3,6 +3,7 @@ import React from "react";
 interface MobileMenuProps {
   icon: React.ReactNode;
   text: string;
+  href : string;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ icon, text }) => {
