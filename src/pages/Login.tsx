@@ -19,7 +19,7 @@ const Login = () => {
       <div className="flex w-full md:w-1/2 h-screen items-center justify-center overflow-y-auto bg-sky-75">
         <div className="w-full max-w-md p-8">
           <h5 className="text-3xl font-bold text-sky-900 mb-8">
-            Login in to your account
+            Log in to your account
           </h5>
           <form className="space-y-4">
             <TextInput
@@ -32,7 +32,7 @@ const Login = () => {
               type="password"
               placeholder="Enter your password"
             />
-            <div className="mt-4 flex justify-center w-full">
+            <div className="mt-4 flex justify-center w-full ">
               <Button />
             </div>
           </form>
