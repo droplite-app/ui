@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen md:overflow-hidden">
       {/* Left Side: Picture */}
       <div className="hidden md:flex w-1/2 bg-blue-50 items-center justify-center">
         <img
@@ -16,7 +16,7 @@ const Login = () => {
       </div>
 
       {/* Right Side : Texts */}
-      <div className="flex w-full md:w-1/2 items-center justify-center bg-sky-75">
+      <div className="flex w-full md:w-1/2 h-screen items-center justify-center overflow-y-auto bg-sky-75">
         <div className="w-full max-w-md p-8">
           <h5 className="text-3xl font-bold text-sky-900 mb-8">
             Login in to your account
