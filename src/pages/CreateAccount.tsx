@@ -1,6 +1,6 @@
 import Mountain from "../assets/mountain.jpg";
-import TextInput from "../components/Login/TextInput";
-import Button from "../components/Login/Button";
+import TextInput from "../components/Login-CreateAccount/TextInput";
+import Button from "../components/Login-CreateAccount/Button";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -43,7 +43,7 @@ const Login = () => {
           </form>
           <div className="mt-4 text-center">
             <Link to="/login" className="text-sky-700 underline">
-              Login in to your account 
+              Login in to your account
             </Link>
           </div>
         </div>
