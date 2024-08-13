@@ -1,6 +1,6 @@
 const UploadBox = () => {
   return (
-    <div className="w-[360px] h-[360px] bg-blue-50 mx-auto gap-0 rounded-[20px] mt-[20px] flex justify-center items-center">
+    <div className="w-[350px] h-[360px] bg-blue-50 mx-auto rounded-[20px] mt-[20px]  pl-[10px] flex flex-col justify-center items-center">
       <svg
         width="132"
         height="105"
