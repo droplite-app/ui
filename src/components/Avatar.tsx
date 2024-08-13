@@ -1,11 +1,39 @@
-const Avatar = () => {
+import React from 'react';
+
+interface AvatarProps {
+  onClick?: () => void;
+  size?: number;
+}
+
+const Avatar: React.FC<AvatarProps> = ({ onClick, size = 40 }) => {
   return (
-    <div className="flex justify-center items-center w-[307px] h-[218px] p-[38px_104px_45px_103px]">
-      <div className="w-[100px] h-[100px] rounded-full overflow-hidden">
+    <div
+      className="cursor-pointer"
+      onClick={onClick}
+      style={{
+        width: size,
+        height: size,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        style={{
+          width: size,
+          height: size,
+          borderRadius: '50%',
+          overflow: 'hidden',
+        }}
+      >
         <img
           src="https://via.placeholder.com/100"
           alt="User Avatar"
-          className="w-full h-full object-cover"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
         />
       </div>
     </div>

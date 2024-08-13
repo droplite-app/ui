@@ -6,8 +6,8 @@ import MenuItem from "./MenuItem";
 const SideBar = () => {
   return (
     <aside className="flex md:flex-col md:justify-between w-full md:w-[307px] h-auto md:h-screen bg-sky-900 text-white fixed bottom-0 md:static p-2 md:p-0 md:top-0 left-0 md:left-auto md:overflow-y-auto">
-      <div className="hidden md:block">
-        <Avatar />
+      <div className="hidden md:flex md:justify-center md:items-center mt-4 pb-4 ">
+        <Avatar size={150} />
       </div>
       <div className="hidden md:block flex-grow">
         <Menu />

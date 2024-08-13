@@ -1,14 +1,36 @@
+import { useState, useEffect, useRef } from 'react';
+import Avatar from "../Avatar";
+
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="w-full flex justify-end p-4  w-[100px] bg-">
-      <div className="relative ">
+    <div className="w-full flex justify-end items-center p-4 h-[60px] space-x-4 bg-transparent relative">
+      <div className="relative flex-grow max-w-[350px]">
         <input
           type="text"
           placeholder="Search"
-          className="pl-10 pr-4 py-2 w-[350px] h-[40px] rounded-full border border-gray-300 bg-white text-gray-700 focus:outline-none focus:border-blue-500"
+          className="pl-10 pr-4 py-2 w-full h-[40px] rounded-full border border-gray-300 bg-white text-gray-700 focus:outline-none focus:border-blue-500"
         />
 
-        {/** added the search SVG on the left side of input area */}
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg
             width="28"
@@ -24,6 +46,35 @@ const Header = () => {
           </svg>
         </div>
       </div>
+
+      <Avatar onClick={toggleMenu} /> 
+
+      {isMenuOpen && (
+        <div ref={menuRef} className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+          <div className="menu menu-default flex flex-col border rounded-lg w-full max-w-36 py-2">
+            <div className="menu-item">
+              <a className="menu-link" href="#">
+                <span className="menu-title">Menu link 1</span>
+              </a>
+            </div>
+            <div className="menu-item">
+              <a className="menu-link" href="#">
+                <span className="menu-title">Menu link 2</span>
+              </a>
+            </div>
+            <div className="menu-item">
+              <a className="menu-link" href="#">
+                <span className="menu-title">Menu link 3</span>
+              </a>
+            </div>
+            <div className="menu-item">
+              <a className="menu-link" href="#">
+                <span className="menu-title">Menu link 4</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
