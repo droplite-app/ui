@@ -9,11 +9,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Login sayfası bağımsız bir sayfa olacak */}
+        {/* Independent Routes */}
         <Route path="/Login" element={<Login />} />
         <Route path="/CreateAccount" element={<CreateAccount/>}/>
 
-        {/* Diğer tüm rotalar için ana sayfa layout'u */}
+        {/* Main page layout*/}
         <Route
           path="*"
           element={
