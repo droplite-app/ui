@@ -42,5 +42,11 @@
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.0",
     "vitest": "^2.0.5"
-  }
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
 }

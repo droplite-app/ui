@@ -9,7 +9,7 @@ function App() {
       <Routes>
         {/* Independent Routes */}
         <Route path="/Login" element={<Login />} />
-        <Route path="/CreateAccount" element={<CreateAccount />} />
+        <Route path="/create-account" element={<CreateAccount />} />
 
         {/* Main page layout */}
         <Route path="*" element={<Main />} />
