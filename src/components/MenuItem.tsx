@@ -17,7 +17,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     <li
       className={`flex items-center w-[307px] h-[69px] px-5 py-4 gap-4 ${
         isActive ? "bg-sky-900" : "bg-sky-900"
-      } text-white hover:bg-blue-700 transition-colors`}
+      } text-white hover:bg-sky-700 transition-colors`}
     >
       <a href={href} className="flex items-center text-white no-underline"></a>
       <span>{icon}</span>
