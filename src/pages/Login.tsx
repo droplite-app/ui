@@ -1,14 +1,18 @@
 import Mountain from "../assets/mountain.jpg";
 import TextInput from "../components/Login/TextInput";
 import Button from "../components/Login/Button";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <div className="flex min-h-screen">
       {/* Left Side: Picture */}
       <div className="hidden md:flex w-1/2 bg-blue-50 items-center justify-center">
-        <img src={Mountain} alt="Login" className="max-w-full max-h-full" />
+        <img
+          src={Mountain}
+          alt="Login"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Right Side : Texts */}
