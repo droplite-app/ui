@@ -19,8 +19,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
         isActive ? "bg-sky-900" : "bg-sky-900"
       } text-white hover:bg-sky-700 transition-colors`}
     >
-      <a href={href} className="flex items-center text-white no-underline"></a>
-      <span>{icon}</span>
+      <a href={href} className="flex items-center text-white no-underline ">
+        <span>{icon}</span>
+      </a>
+
       <span className="text-white">{text}</span>
     </li>
   );
