@@ -6,7 +6,7 @@ import FileList from "../components/File/FileList";
 import React, { useState } from "react";
 
 const Main: React.FC = () => {
-  const [title, setTitle] = useState("My Personal Space"); // state of header
+  const [title, setTitle] = useState("My Personal Space");
 
   const handleItemClick = (item: {
     id: number;
@@ -21,12 +21,18 @@ const Main: React.FC = () => {
       <SideBar />
 
       <main className="flex-1 p-4 bg-blue-50 overflow-auto mr-[400px]">
-        <Header />
-        <h1 className="text-xl font-semibold text-gray-700">{title}</h1>
-        {/* dinamic header */}
+        {/* Başlık */}
+        <h1 className="text-xl font-semibold text-gray-700 mt-4 mb-16">{title}</h1>
+        
+        {/* Dosya listesi */}
         <FileList items={fileData} onItemClick={handleItemClick} />
       </main>
-      <RightSidebar />
+
+      {/* Header'ı RightSidebar'ın hemen üstüne yerleştiriyoruz */}
+      <div className="fixed right-0 top-0 w-[400px]">
+        <Header />
+        <RightSidebar />
+      </div>
     </div>
   );
 };
