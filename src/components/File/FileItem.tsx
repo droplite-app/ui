@@ -81,7 +81,7 @@ const FileIcon = () => (
   </svg>
 );
 
-const FileItem: React.FC<FileItemProps> = ({ item }) => {
+const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const hasChildren = item.children && item.children.length > 0;
@@ -90,61 +90,61 @@ const FileItem: React.FC<FileItemProps> = ({ item }) => {
     if (hasChildren) {
       setIsOpen(!isOpen);
     }
+    if (onClick) {
+      onClick(item);
+    }
   };
 
-  const getIcon = () => {
-    switch (item.type) {
+  const getIcon = (type: string) => {
+    switch (type) {
       case "folder":
-        return (
-          <span>
-            <FolderIcon />
-          </span>
-        );
+        return <FolderIcon />;
       case "picture":
-        return (
-          <span>
-            <ImageIcon />
-          </span>
-        );
+        return <ImageIcon />;
       case "video":
-        return (
-          <span>
-            <VideoIcon />
-          </span>
-        );
+        return <VideoIcon />;
       default:
-        return (
-          <span>
-            <FileIcon />
-          </span>
-        );
+        return <FileIcon />;
     }
   };
 
   return (
-    <div style={{ marginBottom: "16px" }}>
-      {" "}
+    <>
+      {/* Ana klasör bilgilerini sadece klasör kapalıyken göster */}
       {!isOpen && (
-        <div
+        <tr
+          className="cursor-pointer"
           onClick={handleClick}
-          style={{
-            cursor: hasChildren ? "pointer" : "default",
-            display: "flex",
-            alignItems: "center",
-          }}
         >
-          {getIcon()}
-          <span style={{ marginLeft: "8px" }}>{item.name}</span>
-        </div>
+          <td className="px-4 py-2">
+            <div className="flex items-center space-x-2">
+              {getIcon(item.type)}
+              <span>{item.name}</span>
+            </div>
+          </td>
+          <td className="px-4 py-2 text-center">{item.created_at}</td>
+          <td className="px-4 py-2 text-center">{item.creator.name}</td>
+        </tr>
       )}
-      {isOpen && hasChildren /* Klasör tıklandığında alt öğeleri göster */ && (
-        <div style={{ paddingLeft: "20px" }}>
+
+      {/* Eğer klasör açıksa sadece alt öğeleri göster */}
+      {isOpen && hasChildren && (
+        <>
           {item.children?.map((child) => (
-            <FileItem key={child.id} item={child} />
+            <tr key={child.id} className="cursor-pointer">
+              <td className="px-4 py-2">
+                <div className="flex items-center space-x-2">
+                  {getIcon(child.type)}
+                  <span>{child.name}</span>
+                </div>
+              </td>
+              <td className="px-4 py-2 text-center">{child.created_at}</td>
+              <td className="px-4 py-2 text-center">{child.creator.name}</td>
+            </tr>
           ))}
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 };
 

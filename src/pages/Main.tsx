@@ -3,18 +3,27 @@ import RightSidebar from "../components/Right-Sidebar/RightSidebar";
 import Header from "../components/Header/Header";
 import fileData from "../assets/File/data.json";
 import FileList from "../components/File/FileList";
+import React, { useState } from "react";
 
 const Main: React.FC = () => {
-  const handleItemClick = (item: { id: number; type: string }) => {
-    console.log('Clicked item:', item);
-    
+  const [title, setTitle] = useState("My Personal Space"); // state of header
+
+  const handleItemClick = (item: {
+    id: number;
+    type: string;
+    name: string;
+  }) => {
+    setTitle(`My Personal Space > ${item.name}`);
   };
+
   return (
     <div className="flex min-h-screen bg-[#EFF6FF]">
       <SideBar />
-      <main className="flex-1 p-4 bg-blue-50">
+
+      <main className="flex-1 p-4 bg-blue-50 overflow-auto mr-[400px]">
         <Header />
-        <h1 className="text-2xl font-bold">Main Content</h1>
+        <h1 className="text-xl font-semibold text-gray-700">{title}</h1>
+        {/* dinamic header */}
         <FileList items={fileData} onItemClick={handleItemClick} />
       </main>
       <RightSidebar />
