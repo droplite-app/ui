@@ -66,7 +66,7 @@ const Menu = () => {
                 </defs>
               </svg>
             }
-            text="Logout"
+            text="File Upload"
             href="#"
           />
         </a>
