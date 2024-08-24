@@ -3,6 +3,7 @@ import RightSidebar from "../components/Right-Sidebar/RightSidebar";
 import Header from "../components/Header/Header";
 import fileData from "../assets/File/data.json";
 import FileList from "../components/File/FileList";
+import UploadBox from "../components/Right-Sidebar/UploadBox";
 import React, { useState } from "react";
 
 const Main: React.FC = () => {
@@ -18,16 +19,33 @@ const Main: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-[#EFF6FF]">
+      {/* Sidebar stays visible on the left */}
       <SideBar />
 
-      <main className="flex-1 p-4 bg-blue-50 overflow-auto mr-[400px]">
-        <h1 className="text-xl font-semibold text-gray-700 mt-4 mb-16 pl-4">
+      {/* Main content area */}
+      <main className="flex-1 p-4 bg-white lg:bg-blue-50 overflow-auto lg:mr-[400px] mt-0 lg:mt-0">
+        {/* Mobile Header: Only visible on mobile */}
+        <Header className="lg:hidden" />
+
+        <div className="lg:hidden flex justify-center items-center">
+          <div className="max-w-[300px] w-full flex justify-center">
+            <UploadBox />
+          </div>
+        </div>
+
+        {/* Title visible only on desktop */}
+        <h1 className="hidden lg:block text-xl font-semibold text-gray-700 mt-4 mb-16 pl-4">
           {title}
         </h1>
-        <FileList items={fileData} onItemClick={handleItemClick} />
+
+        <div>
+          {/* FileList appears below the RightSidebar on mobile */}
+          <FileList items={fileData} onItemClick={handleItemClick} />
+        </div>
       </main>
 
-      <div className="fixed right-0 top-0 w-[400px]">
+      {/* Right sidebar with header on top for desktop */}
+      <div className="hidden lg:block fixed right-0 top-0 w-[400px]">
         <Header />
         <RightSidebar />
       </div>

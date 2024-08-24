@@ -1,9 +1,12 @@
 const UploadBox = () => {
   return (
-    <div className="w-[350px] h-[360px] bg-blue-50 mx-auto rounded-[20px] mt-[20px]  pl-[10px] flex flex-col justify-center items-center">
+    <div className="w-[350px] h-[60px] bg-blue-50 mx-auto rounded-[20px] mt-[20px] pl-[10px] flex flex-col justify-center items-center 
+    border border-dotted border-sky-300 
+    md:w-[15px] md:h-[40px] md:bg-blue-50 md:border-gray-300 md:border-solid 
+    lg:w-[350px] lg:h-[360px] lg:bg-blue-50 lg:border-gray-300 lg:border-solid">
+      
       <svg
-        width="132"
-        height="105"
+        className="w-[132px] h-[50px] lg:w-[132px] lg:h-[105px]"
         viewBox="0 0 132 105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

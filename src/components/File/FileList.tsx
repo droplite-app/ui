@@ -20,7 +20,8 @@ const FileList: React.FC<FileListProps> = ({ items, onItemClick }) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto">
-        <thead className="bg-blue-50">
+      
+        <thead className="hidden lg:table-header-group bg-blue-50">
           <tr>
             <th className="w-2/5 px-4 py-2 text-left">Name</th>
             <th className="w-1/5 px-4 py-2 text-center">Modified</th>
@@ -35,8 +36,6 @@ const FileList: React.FC<FileListProps> = ({ items, onItemClick }) => {
       </table>
     </div>
   );
-  
-  
 };
 
 export default FileList;
