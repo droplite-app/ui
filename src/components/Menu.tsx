@@ -12,7 +12,7 @@ const Menu = () => {
               <BucketIcon/>
             }
             text="Buckets"
-            href="#"
+            href="#Buckets"
           />
         </a>
 
@@ -22,7 +22,7 @@ const Menu = () => {
               <UploadIcon />
             }
             text="File Upload"
-            href="#"
+            href="#File-Upload"
           />
         </a>
 
@@ -33,7 +33,7 @@ const Menu = () => {
              <UploadIcon/>
             }
             text="Shared Files"
-            href="#"
+            href="#Shared-Files"
           />
         </a>
 
@@ -44,7 +44,7 @@ const Menu = () => {
               <UploadIcon/>
             }
             text="Favorites"
-            href="#"
+            href="#Favorites"
           />
         </a>
       </ul>

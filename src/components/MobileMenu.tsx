@@ -3,17 +3,15 @@ import React from "react";
 interface MobileMenuProps {
   icon: React.ReactNode;
   text: string;
-  href : string;
+  href: string;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ icon, text }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ icon, text, href }) => {
   return (
-    <div
-      className="flex flex-col items-center justify-center w-auto h-auto p-2 text-white"
-    >
-      <span className="text-white">{icon}</span>
-      <span className="text-sm text-white">{text}</span>
-    </div>
+    <a href={href} className="flex flex-col items-center justify-center w-full text-white no-underline">
+      <span className="text-xl">{icon}</span>
+      <span className="text-sm">{text}</span>
+    </a>
   );
 };
 

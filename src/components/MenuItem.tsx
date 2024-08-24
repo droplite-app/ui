@@ -16,10 +16,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon, text, href }) => {
 
   return (
     <li className={liClassName}>
-      <a href={href} className="flex items-center text-white no-underline ">
+     <a href={href} className="flex items-center text-white no-underline w-full h-full">
         <span>{icon}</span>
+        <span className="ml-4">{text}</span> {/* adding space between text and icon */}
       </a>
-      <span className="text-white">{text}</span>
     </li>
   );
 };
