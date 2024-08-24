@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Avatar from "../Avatar";
 
 interface HeaderProps {
-  className?: string; // className propunu ekledik
+  className?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
@@ -28,7 +28,6 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 
   return (
     <div className={`w-full flex justify-end items-center p-16 h-[60px] bg-transparent relative z-10 ${className}`}>
-
       <div className="flex items-center space-x-4">
         <div className="relative">
           <input
@@ -51,7 +50,8 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             </svg>
           </div>
         </div>
-        <Avatar onClick={toggleMenu} />
+        {/* Avatar boyutunu küçük yapıyoruz */}
+        <Avatar onClick={toggleMenu} size="small" />
       </div>
 
       {isMenuOpen && (
