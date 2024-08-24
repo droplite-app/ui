@@ -1,33 +1,45 @@
-import React from 'react';
+import React from "react";
 
 interface AvatarProps {
   onClick?: () => void;
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large" | number;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ onClick, size = 'medium' }) => {
-  let sizeClasses = '';
+const Avatar: React.FC<AvatarProps> = ({ onClick, size = "large" }) => {
+  let sizeClasses = "";
+  let customSizeStyle = {};
 
-  switch (size) {
-    case 'small':
-      sizeClasses = 'w-12 h-12'; // 64px
-      break;
-    case 'medium':
-      sizeClasses = 'w-24 h-24'; // 96px
-      break;
-    case 'large':
-      sizeClasses = 'w-32 h-32'; // 128px
-      break;
-    default:
-      sizeClasses = 'w-32 h-32'; // Varsayılan olarak medium boyut
+  if (typeof size === "number") {
+    customSizeStyle = {
+      width: `${size}px`,
+      height: `${size}px`,
+    };
+  } else {
+    switch (size) {
+      case "small":
+        sizeClasses = "w-8 h-8";
+        break;
+      case "medium":
+        sizeClasses = "w-12 h-12";
+        break;
+      case "large":
+        sizeClasses = "w-16 h-16";
+        break;
+      default:
+        sizeClasses = "w-16 h-16";
+    }
   }
 
   return (
     <div
       className={`cursor-pointer flex justify-center items-center ${sizeClasses}`}
       onClick={onClick}
+      style={customSizeStyle}
     >
-      <div className={`rounded-full overflow-hidden ${sizeClasses}`}>
+      <div
+        className={`rounded-full overflow-hidden ${sizeClasses}`}
+        style={customSizeStyle}
+      >
         <img
           src="https://via.placeholder.com/100"
           alt="User Avatar"
