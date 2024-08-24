@@ -21,14 +21,12 @@ const Main: React.FC = () => {
       <SideBar />
 
       <main className="flex-1 p-4 bg-blue-50 overflow-auto mr-[400px]">
-        {/* Başlık */}
-        <h1 className="text-xl font-semibold text-gray-700 mt-4 mb-16">{title}</h1>
-        
-        {/* Dosya listesi */}
+        <h1 className="text-xl font-semibold text-gray-700 mt-4 mb-16 pl-4">
+          {title}
+        </h1>
         <FileList items={fileData} onItemClick={handleItemClick} />
       </main>
 
-      {/* Header'ı RightSidebar'ın hemen üstüne yerleştiriyoruz */}
       <div className="fixed right-0 top-0 w-[400px]">
         <Header />
         <RightSidebar />
