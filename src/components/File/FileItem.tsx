@@ -3,6 +3,7 @@ import FolderIcon from "../../assets/Icons/FolderIcon";
 import ImageIcon from "../../assets/Icons/ImageIcon";
 import VideoIcon from "../../assets/Icons/VideoIcon";
 import FileIcon from "../../assets/Icons/FileIcon";
+
 export interface FileItemProps {
   item: {
     id: number;
@@ -50,9 +51,9 @@ const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
       {!isOpen && (
         <tr className="cursor-pointer" onClick={handleClick}>
           <td className="px-4 py-2">
-            <div className="flex items-center space-x-2">
-              {getIcon(item.type)}
-              <span>{item.name}</span>
+            <div className="flex items-center">
+              <div className="w-8 flex-shrink-0">{getIcon(item.type)}</div>
+              <span className="ml-4">{item.name}</span>
             </div>
           </td>
           <td className="px-4 py-2 text-center">{item.created_at}</td>
@@ -65,9 +66,10 @@ const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
           {item.children?.map((child) => (
             <tr key={child.id} className="cursor-pointer">
               <td className="px-4 py-2">
-                <div className="flex items-center space-x-2">
-                  {getIcon(child.type)}
-                  <span>{child.name}</span>
+                <div className="flex items-center">
+                  <div className="w-8 flex-shrink-0">{getIcon(child.type)}</div>
+                  <span className="ml-7">{child.name}</span>{" "}
+                  {/* Margin artırıldı */}
                 </div>
               </td>
               <td className="px-4 py-2 text-center">{child.created_at}</td>
