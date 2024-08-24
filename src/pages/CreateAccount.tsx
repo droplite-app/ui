@@ -1,4 +1,4 @@
-import Mountain from "../assets/iStock-1174987674.jpg";
+import Mountain from "../assets//Pictures/iStock-1174987674.jpg";
 import TextInput from "../components/Login-CreateAccount/TextInput";
 import Button from "../components/Login-CreateAccount/Button";
 import { Link } from "react-router-dom";
