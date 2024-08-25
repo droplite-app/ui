@@ -36,13 +36,13 @@ const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
   const getIcon = (type: string) => {
     switch (type) {
       case "folder":
-        return <FolderIcon />;
+        return <FolderIcon/>; 
       case "picture":
-        return <ImageIcon />;
+        return <ImageIcon className="w-6 h-6" />; // Tailwind ile boyut ayarla
       case "video":
-        return <VideoIcon />;
+        return <VideoIcon className="w-6 h-6" />; // Tailwind ile boyut ayarla
       default:
-        return <FileIcon />;
+        return <FileIcon className="w-6 h-6" />; // Tailwind ile boyut ayarla
     }
   };
 
@@ -52,7 +52,7 @@ const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
         <tr className="cursor-pointer" onClick={handleClick}>
           <td className="px-4 py-2">
             <div className="flex items-center">
-              <div className="w-8 flex-shrink-0 mr-6"> {/* Boşluk artırıldı */}
+              <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center mr-4">
                 {getIcon(item.type)}
               </div>
               <span>{item.name}</span>
@@ -74,7 +74,7 @@ const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
             <tr key={child.id} className="cursor-pointer">
               <td className="px-4 py-2">
                 <div className="flex items-center">
-                  <div className="w-8 flex-shrink-0 mr-6"> {/* Boşluk artırıldı */}
+                  <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center mr-4">
                     {getIcon(child.type)}
                   </div>
                   <span>{child.name}</span>
