@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
+import React from "react";
 
 interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
 const Button: React.FC<ButtonProps> = ({ onClick }) => {
   return (
     <button
@@ -12,10 +13,6 @@ const Button: React.FC<ButtonProps> = ({ onClick }) => {
       Login
     </button>
   );
-};
-
-Button.propTypes = {
-  onClick: PropTypes.func,
 };
 
 export default Button;
