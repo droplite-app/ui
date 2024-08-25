@@ -1,6 +1,6 @@
-import MobileMenu from "./Left-Sidebar/MobileMenu";
-import BucketIcon from "../assets/Icons/BucketIcon";
-import UploadIcon from "../assets/Icons/UploadIcon";
+import MobileMenu from "./MobileMenu";
+import BucketIcon from "../../assets/Icons/BucketIcon";
+import UploadIcon from "../../assets/Icons/UploadIcon";
 
 const MobileMenuContainer = () => {
   return (

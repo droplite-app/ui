@@ -1,6 +1,6 @@
 import MenuItem from "./MenuItem";
-import BucketIcon from "../assets/Icons/BucketIcon";
-import UploadIcon from "../assets/Icons/UploadIcon";
+import BucketIcon from "../../assets/Icons/BucketIcon";
+import UploadIcon from "../../assets/Icons/UploadIcon";
 
 const Menu = () => {
   return (
