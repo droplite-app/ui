@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Avatar from "../Avatar";
+import Avatar from "../Left-Sidebar/Avatar";
 
 interface HeaderControlsProps {
   size?: "small" | "medium" | "large";
@@ -29,7 +29,8 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({ size = "small" }) => {
   return (
     <div className="flex items-center space-x-4">
       {/* Search Input */}
-      <div className="relative">{/**used relativ in parent */}
+      <div className="relative">
+        {/**used relativ in parent */}
         <input
           type="text"
           placeholder="Search"

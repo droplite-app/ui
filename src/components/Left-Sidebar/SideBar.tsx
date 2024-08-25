@@ -1,8 +1,8 @@
 import Avatar from "./Avatar";
 import Menu from "./Menu";
 import MenuItem from "./MenuItem";
-import UploadIcon from "../assets/Icons/UploadIcon";
-import MobileMenuContainer from "./MobileMenuContainer"; 
+import UploadIcon from "../../assets/Icons/UploadIcon";
+import MobileMenuContainer from "./MobileMenuContainer";
 
 const SideBar = () => {
   return (
@@ -14,19 +14,10 @@ const SideBar = () => {
         <Menu />
       </div>
       <div className="mt-auto hidden md:block">
-        <MenuItem
-          icon={<UploadIcon />}
-          text="Settings"
-          href="#settings"
-        />
-        <MenuItem
-          icon={<UploadIcon />}
-          text="Logout"
-          href="#logout"
-        />
+        <MenuItem icon={<UploadIcon />} text="Settings" href="#settings" />
+        <MenuItem icon={<UploadIcon />} text="Logout" href="#logout" />
       </div>
       <div className="md:hidden flex justify-around w-full bg-blue-900">
-        
         <MobileMenuContainer />
       </div>
     </aside>

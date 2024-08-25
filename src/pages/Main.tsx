@@ -1,4 +1,4 @@
-import SideBar from "../components/SideBar";
+import SideBar from "../components/Left-Sidebar/SideBar";
 import RightSidebar from "../components/Right-Sidebar/RightSidebar";
 import Header from "../components/Header/Header";
 import fileData from "../assets/File/data.json";
