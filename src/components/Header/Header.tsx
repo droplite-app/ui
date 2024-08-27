@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
     >
       <div></div>
       {/* Header Controls: Search Input + Avatar Dropdown */}
-      <div className="ml-auto pr-0">
+      <div className="ml-auto pr-2">
         <HeaderControls size="small" />
       </div>
     </div>
