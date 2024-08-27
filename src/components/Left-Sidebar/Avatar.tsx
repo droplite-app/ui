@@ -1,4 +1,5 @@
 import React from "react";
+import profileImage from "../../assets/Pictures/profile.jpg";
 
 interface AvatarProps {
   onClick?: () => void;
@@ -41,9 +42,9 @@ const Avatar: React.FC<AvatarProps> = ({ onClick, size = "large" }) => {
         style={customSizeStyle}
       >
         <img
-          src="https://via.placeholder.com/100"
+          src={profileImage}
           alt="User Avatar"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-140"
         />
       </div>
     </div>
