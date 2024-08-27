@@ -61,9 +61,9 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({ size = "small" }) => {
           <div
             ref={menuRef}
             className="absolute right-0 mt-2 w-48 bg-blue-50 border border-sky-800 rounded-lg shadow-lg z-20"
-            style={{ minWidth: "max-content" }} 
+            style={{ minWidth: "max-content" }}
           >
-            <div className="menu menu-default flex flex-col w-full py-2 bg-white rounded-lg shadow-md border border-sky-700">
+            <div className="menu menu-default flex flex-col w-full py-2 bg-white-50 rounded-lg shadow-md border border-sky-700">
               <div className="menu-item hover:bg-blue-100">
                 <a
                   className="menu-link block px-4 py-2 text-sky-900 hover:text-sky-800"
