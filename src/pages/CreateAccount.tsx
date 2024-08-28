@@ -4,6 +4,7 @@ import Button from "../components/Login-CreateAccount/Button";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const handleCreateClick = () => {};
   return (
     <div className="flex h-screen md:overflow-hidden">
       {/* Left Side: Picture */}
@@ -38,7 +39,7 @@ const Login = () => {
               placeholder="Enter your password"
             />
             <div className="mt-4 flex justify-center w-full">
-              <Button />
+              <Button onClick={handleCreateClick}>Create Account</Button>
             </div>
           </form>
           <div className="mt-4 text-center">
