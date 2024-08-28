@@ -1,13 +1,12 @@
-import React from "react";
 import FileItem from "./FileItem";
 import { FileListItem } from "./Ifile";
 
 interface FileListProps {
-  items: Array<FileListItem>
+  items: Array<FileListItem>;
   onItemClick?: (item: { id: number; type: string; name: string }) => void;
 }
 
-const FileList: React.FC<FileListProps> = ({ items, onItemClick }) => {
+const FileList = ({ items, onItemClick }: FileListProps) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto">

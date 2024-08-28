@@ -1,16 +1,16 @@
-import React, { useState } from "react";
 import FolderIcon from "../../assets/Icons/FolderIcon";
 import ImageIcon from "../../assets/Icons/ImageIcon";
 import VideoIcon from "../../assets/Icons/VideoIcon";
 import FileIcon from "../../assets/Icons/FileIcon";
 import { FileListItem } from "./Ifile";
+import { useState } from "react";
 
 export interface FileItemProps {
-  item: FileListItem; 
+  item: FileListItem;
   onClick?: (item: FileListItem) => void;
 }
 
-const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
+const FileItem = ({ item, onClick }: FileItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const hasChildren = item.children && item.children.length > 0;
