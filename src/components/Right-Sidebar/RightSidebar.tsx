@@ -3,8 +3,8 @@ import UploadBox from "./UploadBox";
 const RightSidebar = () => {
   return (
     <>
-     {/* Mobile RightSidebar */}
-     <div className="md:hidden flex items-center justify-center h-full bg-blue-50 text-white w-[300px] h-[80px] p-2 rounded-lg mx-auto mt-4 border border-gray-300">
+      {/* Mobile RightSidebar */}
+      <div className="md:hidden flex items-center justify-center h-full bg-blue-50 text-white w-[300px] h-[80px] p-2 rounded-lg mx-auto mt-4 border border-gray-300">
         <UploadBox />
       </div>
 

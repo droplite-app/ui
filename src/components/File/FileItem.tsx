@@ -36,7 +36,7 @@ const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {
   const getIcon = (type: string) => {
     switch (type) {
       case "folder":
-        return <FolderIcon/>; 
+        return <FolderIcon />;
       case "picture":
         return <ImageIcon className="w-6 h-6" />; // Tailwind ile boyut ayarla
       case "video":
