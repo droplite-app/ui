@@ -3,20 +3,11 @@ import FolderIcon from "../../assets/Icons/FolderIcon";
 import ImageIcon from "../../assets/Icons/ImageIcon";
 import VideoIcon from "../../assets/Icons/VideoIcon";
 import FileIcon from "../../assets/Icons/FileIcon";
+import { FileListItem } from "./Ifile";
 
 export interface FileItemProps {
-  item: {
-    id: number;
-    type: string;
-    name: string;
-    created_at: string;
-    creator: {
-      id: number;
-      name: string;
-    };
-    children?: Array<FileItemProps["item"]>;
-  };
-  onClick?: (item: FileItemProps["item"]) => void;
+  item: FileListItem; 
+  onClick?: (item: FileListItem) => void;
 }
 
 const FileItem: React.FC<FileItemProps> = ({ item, onClick }) => {

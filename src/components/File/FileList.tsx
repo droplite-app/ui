@@ -1,18 +1,9 @@
 import React from "react";
-import FileItem, { FileItemProps } from "./FileItem";
+import FileItem from "./FileItem";
+import { FileListItem } from "./Ifile";
 
 interface FileListProps {
-  items: Array<{
-    id: number;
-    type: string;
-    name: string;
-    created_at: string;
-    creator: {
-      id: number;
-      name: string;
-    };
-    children?: Array<FileItemProps["item"]>;
-  }>;
+  items: Array<FileListItem>
   onItemClick?: (item: { id: number; type: string; name: string }) => void;
 }
 
