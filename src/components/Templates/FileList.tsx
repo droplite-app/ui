@@ -1,5 +1,5 @@
-import FileItem from "./FileItem";
-import { FileListItem } from "./Ifile";
+import FileItem from "../Templates/FileItem";
+import { FileListItem } from "../Interfaces/Ifile";
 
 interface FileListProps {
   items: Array<FileListItem>;

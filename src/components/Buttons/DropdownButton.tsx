@@ -28,6 +28,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, children }) => {
 
   return (
     <div className="relative">
+      
       <button onClick={toggleDropdown} className="focus:outline-none">
         {title}
       </button>

@@ -1,8 +1,8 @@
-import Avatar from "./Avatar";
-import Menu from "./Menu";
-import MenuItem from "./MenuItem";
+import Avatar from "../Menus/Avatar";
+import Menu from "../Menus/Menu";
+import MenuItem from "../Menus/MenuItem";
 import UploadIcon from "../../assets/Icons/UploadIcon";
-import MobileMenuContainer from "./MobileMenuContainer";
+import MobileMenuContainer from "../Menus/MobileMenuContainer";
 
 const SideBar = () => {
   return (

@@ -1,4 +1,4 @@
-import UploadBox from "./UploadBox";
+import UploadBox from "../Buttons/UploadBoxButton";
 
 const RightSidebar = () => {
   return (

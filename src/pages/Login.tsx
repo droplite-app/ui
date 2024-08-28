@@ -1,6 +1,6 @@
 import Mountain from "../assets/Pictures/iStock-1174987674.jpg";
-import TextInput from "../components/Login-CreateAccount/TextInput";
-import Button from "../components/Login-CreateAccount/Button";
+import TextInput from "../components/Inputs/TextInput";
+import Button from "../components/Buttons/LoginButton";
 import { Link } from "react-router-dom";
 
 const Login = () => {

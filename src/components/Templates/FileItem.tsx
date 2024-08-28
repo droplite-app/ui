@@ -2,7 +2,7 @@ import FolderIcon from "../../assets/Icons/FolderIcon";
 import ImageIcon from "../../assets/Icons/ImageIcon";
 import VideoIcon from "../../assets/Icons/VideoIcon";
 import FileIcon from "../../assets/Icons/FileIcon";
-import { FileListItem } from "./Ifile";
+import { FileListItem } from "../Interfaces/Ifile";
 import { useState } from "react";
 
 export interface FileItemProps {

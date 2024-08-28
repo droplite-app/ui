@@ -1,9 +1,9 @@
-import SideBar from "../components/Left-Sidebar/SideBar";
-import RightSidebar from "../components/Right-Sidebar/RightSidebar";
-import Header from "../components/Header/Header";
+import SideBar from "../components/Templates/SideBar";
+import RightSidebar from "../components/Templates/RightSidebar";
+import Header from "../components/Templates/Header";
 import fileData from "../assets/File/data.json";
-import FileList from "../components/File/FileList";
-import UploadBox from "../components/Right-Sidebar/UploadBox";
+import FileList from "../components/Templates/FileList";
+import UploadBox from "../components/Buttons/UploadBoxButton";
 import React, { useState } from "react";
 
 const Main: React.FC = () => {
