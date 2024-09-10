@@ -1,6 +1,6 @@
 import React from "react";
 import SearchInput from "../Inputs/SearchInput";
-import Avatar from "../Menus/Avatar";
+import Avatar from "../Panels/Avatar";
 import Dropdown from "../Buttons/DropdownButton";
 import DropdownMenu from "./DropdownMenu";
 

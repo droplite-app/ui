@@ -1,4 +1,4 @@
-import Avatar from "../Menus/Avatar";
+import Avatar from "../Panels/Avatar";
 import Menu from "../Menus/Menu";
 import MenuItem from "../Menus/MenuItem";
 import UploadIcon from "../../assets/Icons/UploadIcon";
