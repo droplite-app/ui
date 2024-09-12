@@ -2,9 +2,18 @@ import Mountain from "../assets/Pictures/iStock-1174987674.jpg";
 import TextInput from "../components/Inputs/TextInput";
 import Button from "../components/Buttons/LoginButton";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
-  const handleLoginClick = () => {};
+  // State'ler ile e-posta ve şifre verilerini tutma
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLoginClick = () => {
+    // Giriş işlemleri burada yapılacak
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
 
   return (
     <div className="flex h-screen md:overflow-hidden">
@@ -24,16 +33,24 @@ const Login = () => {
             Log in to your account
           </h5>
           <form className="space-y-4">
+            {/* E-posta alanı */}
             <TextInput
               label="E-mail Address"
               type="email"
               placeholder="Enter your email"
+              value={email} // State'e bağlanıyor
+              onChange={(e) => setEmail(e.target.value)} // State güncelleniyor
             />
+            
+            {/* Şifre alanı */}
             <TextInput
               label="Password"
               type="password"
               placeholder="Enter your password"
+              value={password} // State'e bağlanıyor
+              onChange={(e) => setPassword(e.target.value)} // State güncelleniyor
             />
+            
             <div className="mt-4 flex justify-center w-full ">
               <Button onClick={handleLoginClick}>Login</Button>
             </div>
