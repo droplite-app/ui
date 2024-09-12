@@ -10,25 +10,25 @@ const CreateAccount = () => {
   const [passwordRetry, setPasswordRetry] = useState("");
 
   const handleCreateClick = async (e: React.FormEvent) => {
-    e.preventDefault();  // Formun yeniden yüklenmesini engelleme
+    e.preventDefault();  
 
-    // Email ve şifre boş mu kontrol etme
+    
     if (!email || !password || !passwordRetry) {
       alert("Please fill in all fields");
       return;
     }
 
-    // Şifreler aynı mı kontrol etme
+    
     if (password !== passwordRetry) {
       alert("Passwords do not match");
       return;
     }
 
-    // Email ve şifrenin doğru ayarlandığını konsola yazdır
+    
     console.log('Email:', email);
     console.log('Password:', password);
 
-    // API'ye istek gönderme
+    
     try {
       const response = await fetch("http://localhost:3000/users", {
         method: "POST",
