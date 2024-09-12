@@ -1,13 +1,14 @@
 import Mountain from "../assets//Pictures/iStock-1174987674.jpg";
 import TextInput from "../components/Inputs/TextInput";
 import Button from "../components/Buttons/LoginButton";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateAccount = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRetry, setPasswordRetry] = useState("");
+  const navigate = useNavigate(); 
 
   const handleCreateClick = async (e: React.FormEvent) => {
     e.preventDefault();  
@@ -25,8 +26,7 @@ const CreateAccount = () => {
     }
 
     
-    console.log('Email:', email);
-    console.log('Password:', password);
+    
 
     
     try {
@@ -42,7 +42,14 @@ const CreateAccount = () => {
       });
 
       if (response.ok) {
-        alert("Account created successfully");
+        const data = await response.json();
+        sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('userId', data.userId);
+
+
+        alert("Account created successfully, Redirecting to your space...");
+        navigate("/dashboard");
+
       } else {
         const data = await response.json();
         alert(`Error: ${data.message}`);
