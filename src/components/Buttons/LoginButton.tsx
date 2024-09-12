@@ -3,6 +3,7 @@ import React from "react";
 interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button = ({ onClick, children }: ButtonProps) => { 
