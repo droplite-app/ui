@@ -1,18 +1,49 @@
 import Mountain from "../assets/Pictures/iStock-1174987674.jpg";
 import TextInput from "../components/Inputs/TextInput";
 import Button from "../components/Buttons/LoginButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
-  // State'ler ile e-posta ve şifre verilerini tutma
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    // Giriş işlemleri burada yapılacak
-    console.log("Email:", email);
-    console.log("Password:", password);
+  const handleLoginClick = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    //validation
+    if (!email || !password) {
+      alert("Please fill in all the fields");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("userId", data.userId);
+
+        alert("Login successful, Redirecting to your dashboard...");
+        navigate("/dashboard");
+      } else {
+        const data = await response.json();
+        alert(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      alert("Error Logging in");
+      console.log(error);
+    }
   };
 
   return (
@@ -33,24 +64,24 @@ const Login = () => {
             Log in to your account
           </h5>
           <form className="space-y-4">
-            {/* E-posta alanı */}
+            {/* mail area */}
             <TextInput
               label="E-mail Address"
               type="email"
               placeholder="Enter your email"
-              value={email} // State'e bağlanıyor
-              onChange={(e) => setEmail(e.target.value)} // State güncelleniyor
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
             />
-            
-            {/* Şifre alanı */}
+
+            {/* Password */}
             <TextInput
               label="Password"
               type="password"
               placeholder="Enter your password"
-              value={password} // State'e bağlanıyor
-              onChange={(e) => setPassword(e.target.value)} // State güncelleniyor
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
             />
-            
+
             <div className="mt-4 flex justify-center w-full ">
               <Button onClick={handleLoginClick}>Login</Button>
             </div>
