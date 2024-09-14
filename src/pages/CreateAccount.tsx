@@ -5,30 +5,25 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const CreateAccount = () => {
+  const [full_name, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRetry, setPasswordRetry] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleCreateClick = async (e: React.FormEvent) => {
-    e.preventDefault();  
+    e.preventDefault();
 
-    
-    if (!email || !password || !passwordRetry) {
+    if (!full_name || !email || !password || !passwordRetry) {
       alert("Please fill in all fields");
       return;
     }
 
-    
     if (password !== passwordRetry) {
       alert("Passwords do not match");
       return;
     }
 
-    
-    
-
-    
     try {
       const response = await fetch("http://localhost:3000/users", {
         method: "POST",
@@ -36,6 +31,7 @@ const CreateAccount = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          full_name,
           email,
           password,
         }),
@@ -43,13 +39,11 @@ const CreateAccount = () => {
 
       if (response.ok) {
         const data = await response.json();
-        sessionStorage.setItem('token', data.token);
-        sessionStorage.setItem('userId', data.userId);
-
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("userId", data.userId);
 
         alert("Account created successfully, Redirecting to your space...");
         navigate("/dashboard");
-
       } else {
         const data = await response.json();
         alert(`Error: ${data.message}`);
@@ -62,7 +56,6 @@ const CreateAccount = () => {
 
   return (
     <div className="flex h-screen md:overflow-hidden">
-      {/**Left Side: Picture */}
       <div className="hidden md:flex w-1/2 bg-blue-50 items-center justify-center">
         <img
           src={Mountain}
@@ -71,13 +64,19 @@ const CreateAccount = () => {
         />
       </div>
 
-      {/**Right Side : text input and form */}
       <div className="flex w-full md:w-1/2 h-screen items-center justify-center overflow-y-auto bg-sky-75">
         <div className="w-full max-w-md p-8">
           <h5 className="text-3xl font-bold text-sky-900 mb-8 text-center">
             Create a new account
           </h5>
           <form className="space-y-4" onSubmit={handleCreateClick}>
+            <TextInput
+              label="Full Name"
+              type="text"
+              placeholder="Enter your full name"
+              value={full_name}
+              onChange={(e) => setFullName(e.target.value)}
+            />
             <TextInput
               label="E-mail Address"
               type="email"
@@ -100,9 +99,7 @@ const CreateAccount = () => {
               onChange={(e) => setPasswordRetry(e.target.value)}
             />
             <div className="mt-4 flex justify-center w-full">
-              <Button type="submit"> 
-                Create Account
-              </Button>
+              <Button type="submit">Create Account</Button>
             </div>
           </form>
           <div className="mt-4 text-center">
