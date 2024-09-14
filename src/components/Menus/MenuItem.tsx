@@ -4,25 +4,24 @@ import classNames from "classnames";
 interface MenuItemProps {
   icon: React.ReactNode;
   text: string;
-  href: string;
+  href?: string; 
   isActive?: boolean;
+  onClick?: () => void; 
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ icon, text, href }) => {
-  // We are using the classNames library to combine class names
+const MenuItem: React.FC<MenuItemProps> = ({ icon, text, href, onClick }) => {
   const liClassName = classNames(
-    "flex items-center w-[307px] h-[69px] px-5 py-4 gap-4 bg-sky-900 text-white hover:bg-sky-700 transition-colors",
+    "flex items-center w-[307px] h-[69px] px-5 py-4 gap-4 bg-sky-900 text-white hover:bg-sky-700 transition-colors"
   );
 
   return (
-    <li className={liClassName}>
+    <li className={liClassName} onClick={onClick}>
       <a
-        href={href}
+        href={onClick ? "#" : href} 
         className="flex items-center text-white no-underline w-full h-full"
       >
         <span>{icon}</span>
-        <span className="ml-4">{text}</span>{" "}
-        {/* adding space between text and icon */}
+        <span className="ml-4">{text}</span>
       </a>
     </li>
   );
