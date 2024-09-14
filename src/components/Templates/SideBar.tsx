@@ -20,7 +20,10 @@ const SideBar = () => {
       <div className="hidden md:flex md:justify-center md:items-center mt-4 pb-4">
         <Avatar size={150} />
       </div>
-      <div className="hidden md:block flex-grow">
+      <div className="text-center mt-4">
+        <p>name</p>
+      </div>
+      <div className="hidden md:block flex-grow mt-4">
         <Menu />
       </div>
       <div className="mt-auto hidden md:block">
