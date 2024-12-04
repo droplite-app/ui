@@ -4,6 +4,8 @@ import Button from "../components/Buttons/LoginButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +21,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,8 +71,8 @@ const Login = () => {
               label="E-mail Address"
               type="email"
               placeholder="Enter your email"
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             {/* Password */}
@@ -78,8 +80,8 @@ const Login = () => {
               label="Password"
               type="password"
               placeholder="Enter your password"
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <div className="mt-4 flex justify-center w-full ">

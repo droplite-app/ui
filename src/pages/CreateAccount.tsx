@@ -4,6 +4,8 @@ import Button from "../components/Buttons/LoginButton";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const CreateAccount = () => {
   const [full_name, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,7 +27,7 @@ const CreateAccount = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/users", {
+      const response = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
