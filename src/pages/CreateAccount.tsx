@@ -45,7 +45,7 @@ const CreateAccount = () => {
         sessionStorage.setItem("userId", data.userId);
 
         alert("Account created successfully, Redirecting to your space...");
-        navigate("/dashboard");
+        navigate("/");
       } else {
         const data = await response.json();
         alert(`Error: ${data.message}`);
