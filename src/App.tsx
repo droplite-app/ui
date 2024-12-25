@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import Main from "./pages/Main";
 import React, { ReactNode } from "react";
+import NotFound from "./pages/Error";
 
 const isAuthenticated = (): boolean => {
   return !!localStorage.getItem("userToken");
@@ -31,6 +32,9 @@ const App: React.FC = () => {
           element={isAuthenticated() ? <Navigate to="/" /> : <Login />}
         />
         <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="*">
+          <NotFound />
+        </Route>
 
         {/* Main page layout */}
         <Route
