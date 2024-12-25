@@ -106,7 +106,7 @@ const Login = () => {
         </div>
       </div>
 
-      {/* Toaster Bileşenini Ekledik */}
+      
       <Toaster />
     </div>
   );
