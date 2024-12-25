@@ -3,7 +3,7 @@ import TextInput from "../components/Inputs/TextInput";
 import Button from "../components/Buttons/LoginButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -47,14 +47,14 @@ const Login = () => {
         sessionStorage.setItem("token", data.token);
         sessionStorage.setItem("userId", data.userId);
 
-        toast.success("Successfully created!");
+        toast.success("Login successful! Redirecting...");
         navigate("/", { replace: true });
       } else {
         const data = await response.json();
-        alert(`Error: ${data.message}`);
+        toast.error(`Error: ${data.message}`);
       }
     } catch (error) {
-      alert("Error Logging in");
+      toast.error("Error logging in. Please try again.");
       console.log(error);
     }
   };
@@ -70,14 +70,14 @@ const Login = () => {
         />
       </div>
 
-      {/* Right Side : Texts */}
+      {/* Right Side: Texts */}
       <div className="flex w-full md:w-1/2 h-screen items-center justify-center overflow-y-auto bg-sky-75">
         <div className="w-full max-w-md p-8">
           <h5 className="text-3xl font-bold text-sky-900 mb-8 text-center">
             Log in to your account
           </h5>
           <form className="space-y-4">
-            {/* mail area */}
+            {/* Email Area */}
             <TextInput
               label="E-mail Address"
               type="email"
@@ -86,7 +86,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            {/* Password */}
+            {/* Password Area */}
             <TextInput
               label="Password"
               type="password"
@@ -106,6 +106,9 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      {/* Toaster Bileşenini Ekledik */}
+      <Toaster />
     </div>
   );
 };
