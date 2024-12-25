@@ -26,7 +26,10 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         {/* Independent Routes */}
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={isAuthenticated() ? <Navigate to="/" /> : <Login />}
+        />
         <Route path="/create-account" element={<CreateAccount />} />
 
         {/* Main page layout */}

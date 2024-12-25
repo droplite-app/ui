@@ -2,14 +2,24 @@ import Mountain from "../assets/Pictures/iStock-1174987674.jpg";
 import TextInput from "../components/Inputs/TextInput";
 import Button from "../components/Buttons/LoginButton";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const API_URL = import.meta.env.VITE_API_URL;
+
+const isAuthenticated = (): boolean => {
+  return !!sessionStorage.getItem("token");
+};
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleLoginClick = async (e: React.FormEvent) => {
     e.preventDefault();
