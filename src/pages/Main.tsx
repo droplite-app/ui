@@ -1,9 +1,7 @@
 import SideBar from "../components/Templates/SideBar";
-import RightSidebar from "../components/Templates/RightSidebar";
 import Header from "../components/Templates/Header";
 import fileData from "../assets/File/data.json";
 import FileList from "../components/Templates/FileList";
-import UploadBox from "../components/Buttons/UploadBoxButton";
 import React, { useState } from "react";
 
 const Main: React.FC = () => {
@@ -28,9 +26,7 @@ const Main: React.FC = () => {
         <Header className="lg:hidden" />
 
         <div className="lg:hidden flex justify-center items-center">
-          <div className="max-w-[300px] w-full flex justify-center">
-            <UploadBox />
-          </div>
+          <div className="max-w-[300px] w-full flex justify-center"></div>
         </div>
 
         {/* Title visible only on desktop */}
@@ -47,7 +43,6 @@ const Main: React.FC = () => {
       {/* Right sidebar with header on top for desktop */}
       <div className="hidden lg:block fixed right-0 top-0 w-[400px]">
         <Header />
-        <RightSidebar />
       </div>
     </div>
   );
