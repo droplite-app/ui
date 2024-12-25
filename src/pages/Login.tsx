@@ -27,7 +27,6 @@ const Login = () => {
 
     //validation
     if (!email || !password) {
-      alert("Please fill in all the fields");
       return;
     }
 
