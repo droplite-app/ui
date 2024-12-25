@@ -11,7 +11,7 @@ import React, { ReactNode } from "react";
 import NotFound from "./pages/Error";
 
 const isAuthenticated = (): boolean => {
-  return !!localStorage.getItem("userToken");
+  return !!sessionStorage.getItem("token");
 };
 
 interface ProtectedRouteProps {
@@ -22,6 +22,10 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   return isAuthenticated() ? <>{children}</> : <Navigate to="/login" />;
 };
 
+const PublicRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  return !isAuthenticated() ? <>{children}</> : <Navigate to="/" />;
+};
+
 const App: React.FC = () => {
   return (
     <Router>
@@ -29,10 +33,13 @@ const App: React.FC = () => {
         {/* Independent Routes */}
         <Route
           path="/login"
-          element={isAuthenticated() ? <Navigate to="/" /> : <Login />}
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
         />
         <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="*" element={<NotFound />} />
 
         {/* Main page layout */}
         <Route
@@ -43,6 +50,8 @@ const App: React.FC = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
