@@ -3,6 +3,7 @@ import TextInput from "../components/Inputs/TextInput";
 import Button from "../components/Buttons/LoginButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -46,7 +47,7 @@ const Login = () => {
         sessionStorage.setItem("token", data.token);
         sessionStorage.setItem("userId", data.userId);
 
-        alert("Login successful, Redirecting to your dashboard...");
+        toast.success("Successfully created!");
         navigate("/", { replace: true });
       } else {
         const data = await response.json();
