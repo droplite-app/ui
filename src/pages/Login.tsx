@@ -47,7 +47,7 @@ const Login = () => {
         sessionStorage.setItem("userId", data.userId);
 
         alert("Login successful, Redirecting to your dashboard...");
-        navigate("/");
+        navigate("/", { replace: true });
       } else {
         const data = await response.json();
         alert(`Error: ${data.message}`);
