@@ -32,9 +32,7 @@ const App: React.FC = () => {
           element={isAuthenticated() ? <Navigate to="/" /> : <Login />}
         />
         <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="*">
-          <NotFound />
-        </Route>
+        <Route path="*" element={<NotFound />} />
 
         {/* Main page layout */}
         <Route
