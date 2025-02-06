@@ -20,6 +20,9 @@ const loginSchema = {
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+    {},
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,11 +39,17 @@ const Login = () => {
     const data = { email, password };
     const result = await validate(data, loginSchema);
     console.log(result);
-
     if (!result.isValid) {
+      const newErrors: { email?: string; password?: string } = {};
+      if (result.errors.email)
+        newErrors.email = "The Field Should be a valid email adress";
+      if (result.errors.password)
+        newErrors.password = "The Field must be at least 6 characters long.";
+      setErrors(newErrors);
       return;
     }
 
+    setErrors({});
     try {
       const response = await fetch(`${API_URL}/login`, {
         method: "POST",
@@ -96,6 +105,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && <p className="text-red-500">{errors.email}</p>}
 
             {/* Password Area */}
             <TextInput
@@ -106,6 +116,9 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors.password && (
+              <p className="text-red-500">{errors.password}</p>
+            )}
 
             <div className="mt-4 flex justify-center w-full ">
               <Button onClick={handleLoginClick}>Login</Button>
