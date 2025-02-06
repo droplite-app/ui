@@ -75,6 +75,7 @@ const CreateAccount = () => {
             <TextInput
               label="Full Name"
               type="text"
+              name="full-name"
               placeholder="Enter your full name"
               value={full_name}
               onChange={(e) => setFullName(e.target.value)}
@@ -82,6 +83,7 @@ const CreateAccount = () => {
             <TextInput
               label="E-mail Address"
               type="email"
+              name="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -89,6 +91,7 @@ const CreateAccount = () => {
             <TextInput
               label="Password"
               type="password"
+              name="password"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -96,6 +99,7 @@ const CreateAccount = () => {
             <TextInput
               label="Password (Retry)"
               type="password"
+              name="password-retry"
               placeholder="Enter your password again"
               value={passwordRetry}
               onChange={(e) => setPasswordRetry(e.target.value)}

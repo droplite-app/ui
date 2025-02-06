@@ -80,6 +80,7 @@ const Login = () => {
             <TextInput
               label="E-mail Address"
               type="email"
+              name="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -89,13 +90,16 @@ const Login = () => {
             <TextInput
               label="Password"
               type="password"
+              name="password"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
 
             <div className="mt-4 flex justify-center w-full ">
-              <Button onClick={handleLoginClick}>Login</Button>
+              <Button onClick={handleLoginClick} >
+                Login
+              </Button>
             </div>
           </form>
           <div className="mt-4 text-center">
@@ -106,7 +110,6 @@ const Login = () => {
         </div>
       </div>
 
-      
       <Toaster />
     </div>
   );
