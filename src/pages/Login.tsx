@@ -4,11 +4,17 @@ import Button from "../components/Buttons/LoginButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { validate, setLocales, en } from "robust-validator";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const isAuthenticated = (): boolean => {
   return !!sessionStorage.getItem("token");
+};
+
+const loginSchema = {
+  email: "required|email",
+  password: "required|min:6",
 };
 
 const Login = () => {
@@ -24,9 +30,14 @@ const Login = () => {
 
   const handleLoginClick = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLocales(en);
 
     //validation
-    if (!email || !password) {
+    const data = { email, password };
+    const result = await validate(data, loginSchema);
+    console.log(result);
+
+    if (!result.isValid) {
       return;
     }
 
@@ -97,9 +108,7 @@ const Login = () => {
             />
 
             <div className="mt-4 flex justify-center w-full ">
-              <Button onClick={handleLoginClick} >
-                Login
-              </Button>
+              <Button onClick={handleLoginClick}>Login</Button>
             </div>
           </form>
           <div className="mt-4 text-center">
