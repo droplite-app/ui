@@ -3,6 +3,7 @@ import Header from "../components/Templates/Header";
 import fileData from "../assets/File/data.json";
 import FileList from "../components/Templates/FileList";
 import React, { useState } from "react";
+import FileUpload from "../components/Buttons/FileUploadButton";
 
 const Main: React.FC = () => {
   const [title, setTitle] = useState("My Personal Space");
@@ -37,6 +38,10 @@ const Main: React.FC = () => {
         <div>
           {/* FileList appears below the RightSidebar on mobile */}
           <FileList items={fileData} onItemClick={handleItemClick} />
+        </div>
+
+        <div>
+          <FileUpload />
         </div>
       </main>
 
