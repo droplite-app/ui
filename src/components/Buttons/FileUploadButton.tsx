@@ -3,6 +3,31 @@ import toast, { Toaster } from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
+
+export async function uploadFile(file: File) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const response = await fetch(`${API_URL}/`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("Dosya yüklenirken hata oluştu!");
+    }
+
+    return await response.json(); 
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    } else {
+      throw new Error("Bilinmeyen bir hata oluştu.");
+    }
+  }
+}
+
 export default function FileUpload() {
   const [file, setFile] = useState<File | null>(null);
 
@@ -12,25 +37,19 @@ export default function FileUpload() {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!file) {
-      toast.error("please select a file!");
+      toast.error("Lütfen bir dosya seçin!");
       return;
     }
 
-    const formData = new FormData();
-    formData.append("file", file);
-
-    fetch(`${API_URL}/`, {
-      method: "POST",
-      body: formData,
-    }).then((response) => {
-      if (response.ok) {
-        toast.success("Dosya başarıyla yüklendi!");
-      } else {
-        toast.error("Dosya yüklenirken bir hata oluştu!");
-      }
-    });
+    try {
+      await uploadFile(file);
+      toast.success("Dosya başarıyla yüklendi!");
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "Bilinmeyen bir hata oluştu.";
+      toast.error(errorMessage);
+    }
   };
 
   return (
