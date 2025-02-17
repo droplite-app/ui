@@ -3,13 +3,12 @@ import toast, { Toaster } from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-
 export async function uploadFile(file: File) {
   const formData = new FormData();
   formData.append("file", file);
 
   try {
-    const response = await fetch(`${API_URL}/`, {
+    const response = await fetch(`${API_URL}/upload`, {
       method: "POST",
       body: formData,
     });
@@ -18,7 +17,7 @@ export async function uploadFile(file: File) {
       throw new Error("Dosya yüklenirken hata oluştu!");
     }
 
-    return await response.json(); 
+    return await response.json();
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(error.message);
@@ -47,7 +46,8 @@ export default function FileUpload() {
       await uploadFile(file);
       toast.success("Dosya başarıyla yüklendi!");
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Bilinmeyen bir hata oluştu.";
+      const errorMessage =
+        error instanceof Error ? error.message : "Bilinmeyen bir hata oluştu.";
       toast.error(errorMessage);
     }
   };
